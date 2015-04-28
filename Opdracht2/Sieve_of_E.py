@@ -1,21 +1,21 @@
-fout=open('output.txt', 'w')
-print(fout)
-line1='Hallo iedereen, \n'
-fout.write(line1)
-line2='Alles goed?? \n'
-fout.write(line2)
-fout.close()
-t=[]
-
 import time
+
 T1 = time.perf_counter()
 
-fin=open('output.txt')
-for line in fin:
-    t=t+[line[0]]
-    print(t)
-fin.close()
-
-T2 = time.perf_counter()
-print('Time required', T2-T1  ,'sec.')
+def primes(n):
+    getallen = list(range ( 2, n+1 , 1))
+    for deler in getallen:
+        for x in getallen:
+            if x%deler==0 and x!=deler:
+                getallen.remove(x)
+    print(getallen)
+    T2 = time.perf_counter()
+    number_of_primes= len(getallen)
+    print('Found ' + str(number_of_primes) + ' Prime numbers smaller than ' + str(n) + ' in ' + str(T2-T1) + ' sec.')
     
+primes(10000)
+
+
+
+
+# print('Time required '+ str(T2-T1) +' sec.')
