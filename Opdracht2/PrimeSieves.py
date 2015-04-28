@@ -1,1 +1,0 @@
-def primes(n):
