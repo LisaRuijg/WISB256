@@ -1,4 +1,7 @@
 import time
+import sys
+n= int(sys.argv[1])
+bestandsnaam = sys.argv[2]
 
 T1 = time.perf_counter()
 
@@ -8,12 +11,15 @@ def primes(n):
         for x in getallen:
             if x%deler==0 and x!=deler and deler <= int(round(n**0.5)) :   # all delers less or equal than the square root of n don't have to be considered
                 getallen.remove(x)
-    document = open ( 'prime.txt', 'w')
-    for x in getallen:
-            document.write(str(x) +' \n')
-    document.close()
-    T2 = time.perf_counter()
-    number_of_primes= len(getallen)
-    print('Found ' + str(number_of_primes) + ' Prime numbers smaller than ' + str(n) + ' in ' + str(T2-T1) + ' sec.')
+    return getallen
     
-primes(10000)
+T2 = time.perf_counter()
+
+document = open ( bestandsnaam , 'w')
+for x in primes(n):
+    document.write(str(x) +' \n')
+document.close()
+    
+number_of_primes= len(primes(n))
+
+print('Found ' + str(number_of_primes) + ' Prime numbers smaller than ' + str(n) + ' in ' + str(T2-T1) + ' sec.')
