@@ -19,7 +19,7 @@ T2 = time.perf_counter()
 document = open ( bestandsnaam , 'w')
 for x in primes(n):
     if x!=0:
-        document.write(str(x) +' \n')
+        document.write(str(x) +'\n')
 document.close()
     
 number_of_primes= sum( 1 for line in open(bestandsnaam))
