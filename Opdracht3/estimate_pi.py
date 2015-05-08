@@ -28,16 +28,25 @@ def hits():
     L = float(sys.argv[2])
     
     if L >1:
-        print('AssertionError: L should be smaller than 1')
+        count_2 = 0 
+        for i in range(1,N+1):
+            if drop_needle(L)==True:
+                count_2 = count_2 + 1
+        print(str(count_2) + ' hits in '+ str(N) + ' tries')
+        P = (count_2)/N
+        estimate_pi_2 = (2*(-math.sqrt(L*L-1) + L - math.asin(1/L)))/(P-1)
+        print('Pi = '+ str(estimate_pi_2))
         return
-    
-    count = 0    
-    for i in range(1,N+1):
-        if drop_needle(L)==True:
-            count = count +1
-    print(str(count) + ' hits in '+ str(N) + ' tries')
-    estimate_pi = (2*L*N)/(count)
-    print('Pi = '+ str(estimate_pi))
-    return
+   
+    else: 
+        count = 0    
+        for i in range(1,N+1):
+            if drop_needle(L)==True:
+                count = count +1
+        print(str(count) + ' hits in '+ str(N) + ' tries')
+        P = (count)/N
+        estimate_pi = (2*L)/(P)
+        print('Pi = '+ str(estimate_pi))
+        return
 
 hits()
