@@ -1,18 +1,26 @@
 def findRoot(f,a,b,epsilon):
-    fa = float(f(a))
-    fb = float(f(b))
     m = (a+b)/2
-    value_midpoint = f(m)
-    if fa*fb>0:
+    if f(a)*f(b)>0:
         return str("Geen nulpunten")
-    elif fa == 0:
+    elif f(a) == 0:
         return a
-    elif fb == b:
+    elif f(b) == 0:
         return b
+    elif f(m) == 0:
+        return m
     elif abs(b-a) <= epsilon:
         return m
-    elif fa * value_midpoint < 0:
+    elif f(a) * f(m) < 0:
         return findRoot(f,a,m,epsilon)    
-    else: 
+    elif f(m) * f(b) < 0: 
         return findRoot(f,m,b,epsilon)
-    return m
+    
+def findAllRoots(f,a,b,epsilon):
+    roots=[]
+    n = 100000
+    l = (b-a)/n
+    for i in range(n):
+        if f(a+i*l)*f(a+(i+1)*l)<0:
+            x = findRoot(f, a+i*l, a+(i+1)*l, epsilon)
+            roots.append(x)
+    return roots    
