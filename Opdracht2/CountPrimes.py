@@ -16,10 +16,24 @@ A = N/math.log(N)
 
 prime_number_theorem = pi_n/A
 
-#pi2_n = 
+def pi2_n():
+    count = 0
+    for i in prime_list:
+        for j in prime_list:
+            if j-i ==2 and i<j:
+                count = count + 1
+    return count    
+C = pi2_n()
 
-print("Largest Prime = "+str(N))
-print("pi(N) = "+str(pi_n))
-print("N/log(N) = "+ str(A))
-print("ratio = "+ str(prime_number_theorem))
-#print("pi_2(N) = "+str(pi2_n))
+D = (2*C_2*N)/math.log(N)**2
+E = C/D
+
+print("Largest Prime    = "+ str(N))
+print("------------------------------------")
+print("pi(N)            = "+ str(pi_n))
+print("N/log(N)         = "+ str(A))
+print("ratio            = "+ str(prime_number_theorem))
+print("------------------------------------")
+print("pi_2(N)          = "+ str(C))
+print("2CN/log(N)^2     = "+ str(D))
+print("ratio            = "+ str(E))
