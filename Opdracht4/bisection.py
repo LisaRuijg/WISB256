@@ -18,7 +18,7 @@ def findAllRoots(f,a,b,epsilon):
     n = 100000
     l = (b-a)/n
     for i in range(n):
-        if f(a+i*l)*f(a+(i+1)*l)<0:
+        if f(a+i*l)*f(a+(i+1)*l)<=0:
             x = findRoot(f, a+i*l, a+(i+1)*l, epsilon)
             roots.append(x)
     return list(set(roots))    
