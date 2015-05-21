@@ -1,8 +1,6 @@
 def findRoot(f,a,b,epsilon):
     m = (a+b)/2
-    if f(a)*f(b)>0:
-        return str("Geen nulpunten")
-    elif f(a) == 0:
+    if f(a) == 0:
         return a
     elif f(b) == 0:
         return b
@@ -23,4 +21,4 @@ def findAllRoots(f,a,b,epsilon):
         if f(a+i*l)*f(a+(i+1)*l)<0:
             x = findRoot(f, a+i*l, a+(i+1)*l, epsilon)
             roots.append(x)
-    return roots    
+    return list(set(roots))    
