@@ -18,11 +18,11 @@ prime_number_theorem = pi_n/A
 
 def pi2_n():
     count = 0
-    for i in prime_list:
-        for j in prime_list:
-            if j-i ==2 and i<j:
+    for p in prime_list:
+        if p+2 in prime_list:
                 count = count + 1
     return count    
+
 C = pi2_n()
 
 D = (2*C_2*N)/math.log(N)**2

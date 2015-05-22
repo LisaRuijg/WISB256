@@ -6,7 +6,7 @@ bestandsnaam = sys.argv[2]
 T1 = time.perf_counter()
 
 def primes(n):
-    getallen = list(range ( 0, n))
+    getallen = list(range (0, n))
     getallen[1]=0
     for i in range(1,n):
         if getallen[i]!=0:
