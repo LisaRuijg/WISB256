@@ -16,14 +16,13 @@ A = N/math.log(N)
 
 prime_number_theorem = pi_n/A
 
-def pi2_n():
-    count = 0
-    for p in prime_list:
-        if p+2 in prime_list:
-                count = count + 1
-    return count    
+twin_pairs=[]
+for i in range(0, pi_n -1):
+    if prime_list[i+1]-prime_list[i]==2:
+        twin_pairs.append(prime_list[i])
+twin_primes=list(set(twin_pairs))        
 
-C = pi2_n()
+C = len(twin_primes)
 
 D = (2*C_2*N)/math.log(N)**2
 E = C/D

@@ -25,3 +25,17 @@ class Vector():
     def norm(self):
         kwadraat = self.inner(self)
         return math.sqrt(kwadraat)
+        
+    def proj(self,other):
+        lijst_2 =[((self.inner(other))/(self.inner(self)))*self.vector[i] for i in range(len(self.vector))]
+        return math.fsum(lijst_2)
+    
+    def GrammSchmidt(self,other):
+        u_1 = self.vector
+        u_2 = other.vector
+        
+
+u = Vector(2,[3,1])
+v = Vector(2,[2,2])
+
+print(u.proj(v))
