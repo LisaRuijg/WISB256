@@ -34,8 +34,3 @@ class Vector():
         u_1 = self.vector
         u_2 = other.vector
         
-
-u = Vector(2,[3,1])
-v = Vector(2,[2,2])
-
-print(u.proj(v))
