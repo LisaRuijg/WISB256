@@ -1,5 +1,6 @@
 import numpy as np
 import scipy as sp
+from scipy.linalg import eigvals
 from scipy.integrate import odeint
 
 class Lorenz():
@@ -22,3 +23,16 @@ class Lorenz():
         self.initialisatie = [self.x_0, self.y_0, self.z_0]
         self.oplossen = odeint(self.functies, self.initialisatie, self.times)
         return self.oplossen
+        
+    def df(self,u):
+        matrix = np.array([[ -self.sigma, self.sigma, 0],
+                           [ self.rho - u[2], -1, -u[0]],
+                           [ u[1], u[0], -self.beta]])
+        return matrix
+    
+    def isStable(self,u):
+        eigenwaarden_matrix = eigvals(self.df(u))
+        if eigenwaarden_matrix[0] < 0 and eigenwaarden_matrix[1] < 0 and eigenwaarden_matrix[2] < 0:
+            return True
+        else:
+            return False
